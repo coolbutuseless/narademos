@@ -1,10 +1,8 @@
 
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Copyright 2024 Mike Cheng
 # MIT License
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 library(nara)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -15,10 +13,11 @@ if (!file.exists("image/toasters.png")) {
 }
 toasters <- png::readPNG("image/toasters.png", native = TRUE)
 
+
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Set the background to transparent
+# Replace the current background color with transparent white
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nr_replace(toasters, -15658735L, 'transparent') 
+nr_replace(toasters, toasters[1,1], 'transparent') 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -36,7 +35,7 @@ loc <- data.frame(
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Open a window to draw on
+# Open a window to draw on. 'dbcairo' = double-buffered window
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 x11(type = 'dbcairo')
 dev.control(displaylist = 'inhibit')
@@ -114,6 +113,4 @@ if (save_anim) {
   nrs_to_gif(frames, gif_name = "toasters.gif")
   nrs_to_mp4(frames, mp4_name = "toasters.mp4")
 }
-
-
 
