@@ -10,16 +10,15 @@ library(nara)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Load the spritemap as a native raster
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if (!file.exists("toasters.png")) {
-  download.file("https://www.spriters-resource.com/resources/sheets/203/206245.png", "toasters.png")
+if (!file.exists("image/toasters.png")) {
+  download.file("https://www.spriters-resource.com/resources/sheets/203/206245.png", "image/toasters.png")
 }
-toasters <- png::readPNG("toasters.png", native = TRUE)
+toasters <- png::readPNG("image/toasters.png", native = TRUE)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Set the background to transparent
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 nr_replace(toasters, -15658735L, 'transparent') 
-plot(toasters)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,10 +59,18 @@ vy <-  -vx/2
 idx <- sample(5, Ntoasters, TRUE)
 
 Nframes <- 300
-frames <- vector('list', Nframes)
+
+# If you want to save the frames and output an animation
+save_anim <- FALSE
+if (save_anim) {
+  frames <- vector('list', Nframes)
+}
+
+
 for (frame in seq(Nframes)) {
   nr <- nr_new(400, 400, 'black')
-  frames[[frame]] <- nr
+  
+  if (save_anim) frames[[frame]] <- nr
   
   nr_blit2(
     nr, 
@@ -91,6 +98,7 @@ for (frame in seq(Nframes)) {
   plot(nr)
   dev.flush()
   
+  # Slow down the framerate otherwise it'll render too fast!
   Sys.sleep(0.1)
 }
 
@@ -98,9 +106,10 @@ for (frame in seq(Nframes)) {
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Create an animation to post to Mastodon :)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nrs_to_gif(frames, gif_name = "toasters.gif")
-nrs_to_mp4(frames, mp4_name = "toasters.mp4")
-
+if (save_anim) {
+  nrs_to_gif(frames, gif_name = "toasters.gif")
+  nrs_to_mp4(frames, mp4_name = "toasters.mp4")
+}
 
 
 
