@@ -60,17 +60,18 @@ idx <- sample(5, Ntoasters, TRUE)
 
 Nframes <- 300
 
-# If you want to save the frames and output an animation
+# If you want to save the frames and output an animation at the end
 save_anim <- FALSE
 if (save_anim) {
   frames <- vector('list', Nframes)
 }
 
 
+nr <- nr_new(400, 400, 'black')
+
 for (frame in seq(Nframes)) {
-  nr <- nr_new(400, 400, 'black')
-  
-  if (save_anim) frames[[frame]] <- nr
+
+  nr_fill(nr, 'black')
   
   nr_blit2(
     nr, 
@@ -97,6 +98,9 @@ for (frame in seq(Nframes)) {
   dev.hold()
   plot(nr)
   dev.flush()
+  
+  # Keep frame if saving animation at end
+  if (save_anim) frames[[frame]] <- nr_duplicate(nr)
   
   # Slow down the framerate otherwise it'll render too fast!
   Sys.sleep(0.1)
