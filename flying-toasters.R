@@ -1,10 +1,14 @@
 
+if (!requireNamespace('nara', quietly = TRUE)) {
+  remotes::install_github('coolbutuseless/nara')
+}
 library(nara)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Load the spritemap as a native raster
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if (!file.exists("image/toasters.png")) {
+  dir.create("image", showWarnings = FALSE)
   download.file("https://www.spriters-resource.com/resources/sheets/203/206245.png", "image/toasters.png")
 }
 toasters <- png::readPNG("image/toasters.png", native = TRUE)

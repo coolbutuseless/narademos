@@ -1,4 +1,7 @@
 
+if (!requireNamespace('nara', quietly = TRUE)) {
+  remotes::install_github('coolbutuseless/nara')
+}
 library(nara)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
