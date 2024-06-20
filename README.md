@@ -11,3 +11,7 @@ All code is licensed MIT
 
 ![flying toasters](image/flying-toasters.gif)
 
+
+### Logo bounce
+
+![logo bounce](image/logo-bounce.gif)
