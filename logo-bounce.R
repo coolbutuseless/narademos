@@ -79,5 +79,5 @@ for (frame in seq(Nframes)) {
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 if (save_anim) {
   nrs_to_gif(frames, gif_name = "image/logo-bounce.gif")
-  nrs_to_mp4(frames, mp4_name = "image/logo-bounce.mp4")
+  nrs_to_mp4(frames, mp4_name = "image/logo-bounce.mp4", framerate = 30)
 }

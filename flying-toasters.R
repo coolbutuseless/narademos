@@ -11,27 +11,22 @@ if (!file.exists("image/toasters.png")) {
   dir.create("image", showWarnings = FALSE)
   download.file("https://www.spriters-resource.com/resources/sheets/203/206245.png", "image/toasters.png")
 }
-toasters <- png::readPNG("image/toasters.png", native = TRUE)
+toasters_map <- png::readPNG("image/toasters.png", native = TRUE)
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Replace the current background color with transparent white
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nr_replace(toasters, toasters[1,1], 'transparent') 
+nr_replace(toasters_map, toasters_map[1,1], 'transparent') 
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Create a location data.frame for the spritemap giving the coordinates
-# and size of each of the sprites
+# Cut out the sprites from the map into a list of sprites
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-w <- 64
-h <- 59
-loc <- data.frame(
-  x = (0:4) * w,
-  y = 0,
-  w = w,
-  h = h
-)
+toasters <- lapply(0:4, function(i) {
+  nr_crop(toasters_map, x = i * 64, y = 0, w = 64, h = 59)
+})
+
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -72,13 +67,12 @@ for (frame in seq(Nframes)) {
 
   nr_fill(nr, 'black')
   
-  nr_blit2(
+  nr_blit_list(
     nr, 
-    x   = x,          # Vector of destination coordinates
-    y   = y, 
-    src = toasters, 
-    loc = loc,        # the data.frame of all sprite locations
-    idx = idx         # the index of the sprite to draw at this location
+    x        = x,          # Vector of destination coordinates
+    y        = y, 
+    src_list = toasters, 
+    src_idx  = idx         # the index of the sprite to draw at each location
   )
   
   # increment animation frame
