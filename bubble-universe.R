@@ -54,20 +54,25 @@ nr  <- nr_new(W, W, 'black')
 for (t in seq(0, 3, 0.02)) {
   nr_fill(nr, 'black')
   
+  xs <- double(N)
+  ys <- double(N)
   for (i in seq(N)) {
     for (j in seq(N)) {
       u <- sin(i + y) + sin(r*i + x)
       v <- cos(i + y) + cos(r*i + x)
       x <- u + t
       y <- v
-      col <- rgb(i, j, (y + 2) * N/4, maxColorValue = N)
-      nr_point(nr, u * N/2 + W/2, y * N/2 + W/2, color = col)
+      xs[j] <- u
+      ys[j] <- y
     }
+    col <- rgb(i, seq(N), (ys + 2) * N/4, maxColorValue = N)
+    nr_point(nr, xs * N/2 + W/2, ys * N/2 + W/2, color = col)
   }
   
   dev.hold()
   plot(nr)
   dev.flush()
   
+  # uncomment/adapt next line if animation runs too fast
+  # Sys.sleep(0.02) 
 }
-
