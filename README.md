@@ -6,6 +6,17 @@ Some example demos written using [nara package](https://github.com/coolbutuseles
 
 All code in this repository is licensed MIT
 
+### Mystery Animation
+
+Testing out synchronized audio/video playback using [`{nara}`](https://github.com/coolbutuseless/nara) 
+and [`{covernor}`](https://github.com/coolbutuseless/governor) 
+
+**For linux users**, you will need to ensure you have `portaudio` installed (`apt-get install portaudio19-dev`)
+and also possibly re-install the `{audio}` package.
+
+No audio on github README pages, so please download and run `mystery.R`
+
+
 ### Bubble Universe
 
 Based on 'processing' code in a Tweet - https://x.com/yuruyurau/status/1226846058728177665
