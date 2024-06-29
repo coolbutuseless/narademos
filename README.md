@@ -9,7 +9,7 @@ All code in this repository is licensed MIT
 ### Audio/Video Playback
 
 Testing out audio/video playback using [`{nara}`](https://github.com/coolbutuseless/nara) 
-and [`{covernor}`](https://github.com/coolbutuseless/governor) 
+and [`{governor}`](https://github.com/coolbutuseless/governor) 
 
 **For linux users**, you will need to ensure you have `portaudio` installed (`apt-get install portaudio19-dev`)
 and also possibly re-install the `{audio}` package.
