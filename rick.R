@@ -34,13 +34,13 @@ dev.control(displaylist = 'inhibit')
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 rate <- 8000 # Ha
 len  <- 15   # seconds
-beat <- readBin("data/mystery-beat.u1", raw(), n = file.size("data/mystery-beat.u1"))
+beat <- readBin("data/rick-beat.u1", raw(), n = file.size("data/rick-beat.u1"))
 beat <- as.double(beat[1:(len * rate)]) / 255 - 0.5
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Setup video playback
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nrs     <- readRDS("data/mystery-frames.dat")
+nrs     <- readRDS("data/rick-frames.dat")
 fps     <- 12
 Nframes <- len * fps
 gov     <- governor::gov_init(1/fps)
