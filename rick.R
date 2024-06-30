@@ -2,7 +2,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Install pkgs from github
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-if (!requireNamespace('nara', quietly = TRUE)) {
+if (!requireNamespace('nara', quietly = TRUE) || packageVersion("nara") < "0.1.1.9021") {
   remotes::install_github('coolbutuseless/nara')
 }
 
@@ -12,6 +12,8 @@ if (!requireNamespace('governor', quietly = TRUE)) {
 
 library(nara)
 library(governor)
+
+library(magick)
 library(audio)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,7 +42,8 @@ beat <- as.double(beat[1:(len * rate)]) / 255 - 0.5
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Setup video playback
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-nrs     <- readRDS("data/rick-frames.dat")
+gif     <- magick::image_read("data/rick.gif")
+nrs     <- nara::magick_to_nr(gif)  # need nara v0.1.1.9021+
 fps     <- 12
 Nframes <- len * fps
 gov     <- governor::gov_init(1/fps)
