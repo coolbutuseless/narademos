@@ -37,7 +37,7 @@ dev.control(displaylist = 'inhibit')
 rate <- 8000 # Ha
 len  <- 15   # seconds
 beat <- readBin("data/rick-beat.u1", raw(), n = file.size("data/rick-beat.u1"))
-beat <- as.double(beat[1:(len * rate)]) / 255 - 0.5
+beat <- as.double(beat[1:(len * rate)]) / 128 - 1.0
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Setup video playback
