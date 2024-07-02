@@ -6,6 +6,16 @@ Some example demos written using [nara package](https://github.com/coolbutuseles
 
 All code in this repository is licensed MIT
 
+### Oxygene-R
+
+This is a recreation of an Atari-ST demo often referred to as `ST-NICCC` from the
+year 2000.
+
+The demo plays 2 minutes of 3d animation.  (the following is just a still image from the
+start of animation)
+
+<img src="image/oxygene-R.png" width=50% />
+
 ### Audio/Video Playback
 
 Testing out audio/video playback using [`{nara}`](https://github.com/coolbutuseless/nara) 
