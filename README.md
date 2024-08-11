@@ -6,6 +6,13 @@ Some example demos written using [nara package](https://github.com/coolbutuseles
 
 All code in this repository is licensed MIT
 
+### MPEG Playback
+
+See [`{narampeg}` package](https://github.com/coolbutuseless/narampeg)
+
+<img src="image/narampeg.gif">
+
+
 ### Oxygene-R
 
 This is a recreation of an Atari-ST demo often referred to as `ST-NICCC` from the
