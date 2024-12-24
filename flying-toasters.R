@@ -55,17 +55,24 @@ Nflying <- 10
 blit_config <- data.frame(
   idx   = sample(length(toasters), Nflying, TRUE), # index into 'src' list of nativerasters
   x     = runif(Nflying, 0, 600),   # position on 'dst'
-  y     = runif(Nflying, 0, 100),   # position on 'dst'
-  x0    = 0L,                       # start of blit on 'src'
-  y0    = 0L,                       # start of blit on 'src'
-  w     = -1L,                      # width of blit on 'src'
-  h     = -1L,                      # height of blit on 'src'
-  hjust = 0.5,                      # position of handle on 'src' (0.5 = middle)
-  vjust = 0.5,                      # position of handle on 'src' (0.5 = middle)
-  respect_alpha = TRUE,             # respect alpha when drawing
-  render = TRUE                     # do we want to draw this item?
+  y     = runif(Nflying, 0, 100)   # position on 'dst'
+  
+  # Other 'config' columns are optional
+  # x0    = 0L,              # start of blit on 'src'. Default. Top-left
+  # y0    = 0L,              # start of blit on 'src'. Default. Top-left
+  # w     = -1L,             # width of blit on 'src'. Default full width
+  # h     = -1L,             # height of blit on 'src'. Default: full height
+  # hjust = 0,               # position of handle on 'src' (0 = top)
+  # vjust = 0,               # position of handle on 'src' (0 = left)
+  # respect_alpha = TRUE,    # respect alpha when drawing
+  # render = TRUE            # do we want to draw this item?
 )
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Custom columns which I'm using to keep track of information about each
+# object. This is not part of the `nr_blit_bulk()` call, and just kept in the
+# data.frame for convenience
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blit_config$vx <- -sample(c(4, 6, 8), Nflying, TRUE)
 blit_config$vy <- -0.5 * blit_config$vx
 
