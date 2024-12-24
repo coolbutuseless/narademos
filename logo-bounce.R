@@ -52,7 +52,7 @@ if (save_anim) {
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 for (frame in seq(Nframes)) {
   nr_fill(screen, 'black')
-  nr_blit(screen, x, y, logo)
+  nr_blit(dst = screen, src = logo, x, y)
   
   # Update position
   x <- x + vx
