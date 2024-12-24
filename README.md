@@ -6,6 +6,13 @@ Some example demos written using [nara package](https://github.com/coolbutuseles
 
 All code in this repository is licensed MIT
 
+
+### Parallex checkboard (via blitting)
+
+
+<img src="image/parallax-squares.gif" width=50% />
+
+
 ### MPEG Playback
 
 See [`{narampeg}` package](https://github.com/coolbutuseless/narampeg)
