@@ -7,6 +7,16 @@ Some example demos written using [nara package](https://github.com/coolbutuseles
 All code in this repository is licensed MIT
 
 
+### Rotozoom (multiple)
+
+using `nr_blit_rotozoom()`
+
+Realtime animation of 100 logos. (screenshot below)
+
+<img src="image/rotozoom-multiple.png" width=50% />
+
+
+
 ### Parallex checkboard (via blitting)
 
 
