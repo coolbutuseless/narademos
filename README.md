@@ -4,7 +4,19 @@
 
 Some example demos written using [nara package](https://github.com/coolbutuseless/nara) 
 
+All these demos are calculated and rendered in realtime at 30 frames/second.
+
 All code in this repository is licensed MIT
+
+
+
+
+### Raster Bars
+
+Raster bars implemented with lines and some color gradients via [{displease}](cran.dev/displease)
+
+<img src="image/rasterbars.gif" width=50% />
+
 
 
 ### Rotozoom (multiple)
