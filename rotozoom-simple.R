@@ -47,7 +47,7 @@ skip <- FALSE
 for (frame in seq(Nframes)) {
 
   nr_fill(nr, 'white')
-  nr_blit_rotozoom(nr, src, 200, 200, thetas[frame], scale = sfs[frame])
+  nr_blit(nr, src, 200, 200, angle = thetas[frame], scale = sfs[frame])
   
   # Draw to screen
   if (!skip) {

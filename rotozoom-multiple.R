@@ -64,7 +64,7 @@ for (frame in seq(Nframes)) {
   vy[oob] <- -vy[oob]
   
   nr_fill(nr, 'white')
-  nr_blit_rotozoom(nr, src, x, y, theta, scale = scale)
+  nr_blit(nr, src, x, y, angle = theta, scale = scale)
   
   # Draw to screen
   if (!skip) {

@@ -19,9 +19,9 @@ Raster bars implemented with lines and some color gradients via [{displease}](cr
 
 
 
-### Rotozoom (multiple)
+### Rotozoom (blitting with rotation)
 
-using `nr_blit_rotozoom()`
+using `nr_blit()`
 
 Realtime animation of 100 logos. (screenshot below)
 
@@ -29,7 +29,7 @@ Realtime animation of 100 logos. (screenshot below)
 
 
 
-### Parallex checkboard (via blitting)
+### Parallax checkboard (via blitting)
 
 
 <img src="image/parallax-squares.gif" width=50% />

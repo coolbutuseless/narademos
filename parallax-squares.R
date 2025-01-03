@@ -81,10 +81,10 @@ for (frame in seq(Nframes)) {
   yoff <-  67 * sin(frame / 75 * pi + pi / 3)
   
   # blit each layer with offsets
-  nr_blit(nr, nr1, pos1$x + xoff    , pos1$y + yoff    )
-  nr_blit(nr, nr2, pos2$x + xoff * 2, pos2$y + yoff * 2)
-  nr_blit(nr, nr3, pos3$x + xoff * 4, pos3$y + yoff * 4)
-  nr_blit(nr, nr4, pos4$x + xoff * 8, pos4$y + yoff * 8)
+  nr_blit(nr, nr1, pos1$x + xoff    , pos1$y + yoff    , hjust = 0, vjust = 0)
+  nr_blit(nr, nr2, pos2$x + xoff * 2, pos2$y + yoff * 2, hjust = 0, vjust = 0)
+  nr_blit(nr, nr3, pos3$x + xoff * 4, pos3$y + yoff * 4, hjust = 0, vjust = 0)
+  nr_blit(nr, nr4, pos4$x + xoff * 8, pos4$y + yoff * 8, hjust = 0, vjust = 0)
   
   # Draw to screen
   dev.hold()
